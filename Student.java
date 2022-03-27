@@ -1,11 +1,24 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Student {
     private int ID;
     private String name;
-    private Date birthdate;
+    private String birthdate;
 
-    public Student(int ID, String name, Date birthdate) {
+    ArrayList<Object> studentArray = new ArrayList<Object>();
+
+    public Student(){
+
+    }
+    @Override
+    public String toString() {
+        return "Student No: " + this.getID() +
+                ", Student Name: " + this.getName() +
+                ", Date of Birth: " + this.getBirthdate();
+    }
+
+    public Student(int ID, String name, String birthdate) {
         this.ID = ID;
         this.name = name;
         this.birthdate = birthdate;
@@ -27,11 +40,11 @@ public class Student {
         this.name = name;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 }
