@@ -47,6 +47,7 @@ public class Course {
         courseArray.add(course);
     }
 
+    @Override
     public String toString() {
         return "id: " + courseID + " " +
                 "| name: " + name + " " +

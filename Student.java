@@ -2,33 +2,27 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Student {
-    private int ID;
+    private String ID;
     private String name;
     private String birthdate;
 
-    ArrayList<Object> studentArray = new ArrayList<Object>();
+    ArrayList<Student> studentArray = new ArrayList<Student>();
 
     public Student(){
 
     }
-    @Override
-    public String toString() {
-        return "Student No: " + this.getID() +
-                ", Student Name: " + this.getName() +
-                ", Date of Birth: " + this.getBirthdate();
-    }
 
-    public Student(int ID, String name, String birthdate) {
+    public Student(String ID, String name, String birthdate) {
         this.ID = ID;
         this.name = name;
         this.birthdate = birthdate;
     }
 
-    public int getID() {
+    public String  getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -46,5 +40,18 @@ public class Student {
 
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
+    }
+
+    @Override
+    public String toString(){
+        return "id: " + ID + " " +
+                "| name: " + name + " " +
+                "| noCredits: " + birthdate;
+    }
+
+    public void getAllStudents() {
+        for (Student student : studentArray) {
+            System.out.println(student.toString());
+        }
     }
 }
