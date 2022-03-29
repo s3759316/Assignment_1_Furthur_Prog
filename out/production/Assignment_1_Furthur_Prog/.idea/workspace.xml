@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87e34480-faa8-4053-8e98-3569c7d87b89" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/EnrolmentList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudentEnrolment.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentEnrolment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudentEnrolmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentEnrolmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolmentManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolmentManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="15" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Student-Enrollment-Manager-master" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />

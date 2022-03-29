@@ -2,29 +2,29 @@ import java.util.ArrayList;
 
 public class StudentEnrolment implements StudentEnrolmentManager{
 
-    private Student student;
-    private Course course;
+    private String student;
+    private String course;
     private String semester;
 
-    public StudentEnrolment(Student student, Course course, String semester) {
+    public StudentEnrolment(String student, String course, String semester) {
         this.student = student;
         this.course = course;
         this.semester = semester;
     }
 
-    public Student getStudent() {
+    public String getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    public void setStudent(String student) {
         this.student = student;
     }
 
-    public Course getCourse() {
+    public String getCourse() {
         return course;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(String course) {
         this.course = course;
     }
 
@@ -37,23 +37,35 @@ public class StudentEnrolment implements StudentEnrolmentManager{
     }
 
     @Override
-    public void addEnrolment(StudentEnrolment newEnrolment) {
+    public String toString() {
+        return "student: " + student +
+                " | course: " + course +
+                " | Semester: " + semester;
+    }
 
+    @Override
+    public void addEnrolment(StudentEnrolment newEnrolment) {
+        studentEnrolment.add(newEnrolment);
+        System.out.println("Enrolment Create Successfully! " + newEnrolment.toString());
     }
 
     @Override
     public void updateEnrolment(StudentEnrolment updateData, StudentEnrolment update) {
-
+        updateData.setStudent(update.getStudent());
+        updateData.setCourse(update.getCourse());
+        updateData.setSemester(update.getSemester());
+        System.out.println("Updated 1 enrollment:\n");
     }
 
     @Override
     public void deleteEnrolment(StudentEnrolment enrolment) {
-
+        studentEnrolment.remove(enrolment);
+        System.out.println("\nDeleted 1 enrollment\n");
     }
 
-    @Override
-    public ArrayList<StudentEnrolment> getAllEnrolments() {
-        return null;
-    }
+//    @Override
+//    public ArrayList<StudentEnrolment> getAllEnrolments() {
+//        return this.enrolmentList;
+//    }
 }
 

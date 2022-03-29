@@ -6,7 +6,7 @@ public class Student {
     private String name;
     private String birthdate;
 
-    ArrayList<Student> studentArray = new ArrayList<Student>();
+    ArrayList<Student> studentArray = new ArrayList<>();
 
     public Student(){
 
@@ -46,7 +46,7 @@ public class Student {
     public String toString(){
         return "id: " + ID + " " +
                 "| name: " + name + " " +
-                "| noCredits: " + birthdate;
+                "| birthdate " + birthdate;
     }
 
     public void getAllStudents() {

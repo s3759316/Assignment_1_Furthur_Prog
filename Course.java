@@ -3,13 +3,13 @@ import java.util.ArrayList;
 public class Course {
     private String courseID;
     private String name;
-    private int credit;
+    private String credit;
 
-    private ArrayList<Course> courseArray = new ArrayList<Course>();
+    ArrayList<Course> courseArray = new ArrayList<>();
 
     public Course() {}
 
-    public Course(String courseID, String name, int credit) {
+    public Course(String courseID, String name, String credit) {
         this.courseID = courseID;
         this.name = name;
         this.credit = credit;
@@ -31,20 +31,12 @@ public class Course {
         this.name = name;
     }
 
-    public int getCredit() {
+    public String getCredit() {
         return credit;
     }
 
-    public void setCredit(int credit) {
+    public void setCredit(String credit) {
         this.credit = credit;
-    }
-
-    public ArrayList<Course> getCourseArray() {
-        return courseArray;
-    }
-
-    public void addCourse(Course course) {
-        courseArray.add(course);
     }
 
     @Override
