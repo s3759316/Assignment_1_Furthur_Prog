@@ -267,11 +267,38 @@ public class Main {
                     continue;
 
                 case "4":
-
+                    loop = true;
+                    while(loop){
+                        System.out.println("Print All Course Of One Student: \n" +
+                                "Please enter student ID: ");
+                        String studentID = scanner1.next();
+                        String valid = "";
+                        for (int i = 0; i < student.studentArray.size(); i++) {
+                            if (studentID.equalsIgnoreCase(student.studentArray.get(i).getID())) {
+                                System.out.println("Valid ID");
+                                valid = "valid";
+                                break;
+                            }
+                            if (!studentID.equalsIgnoreCase(student.studentArray.get(student.studentArray.size() - 1).getID())) {
+                                System.out.println("Not Valid ID");
+                                break;
+                            }
+                        }
+                        if (!valid.equalsIgnoreCase("valid")){
+                            continue;
+                        }
+                        System.out.println("Course of " + studentID);
+                        for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                            if (studentID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getStudent())){
+                                System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getCourse());
+                            }
+                        }
+                        loop = false;
+                    }
                     continue;
 
                 case "5":
-
+                    
                     continue;
 
                 case "6":
