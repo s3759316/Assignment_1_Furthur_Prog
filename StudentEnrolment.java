@@ -63,6 +63,16 @@ public class StudentEnrolment implements StudentEnrolmentManager{
         System.out.println("\nDeleted 1 enrollment\n");
     }
 
+    @Override
+    public void getOne() {
+
+    }
+
+    @Override
+    public void getAll() {
+
+    }
+
 //    @Override
 //    public ArrayList<StudentEnrolment> getAllEnrolments() {
 //        return this.enrolmentList;

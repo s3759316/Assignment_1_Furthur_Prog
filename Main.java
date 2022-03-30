@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
@@ -148,23 +147,25 @@ public class Main {
                                 if (!valid.equalsIgnoreCase("valid")){
                                     continue;
                                 }
+                                String exist = "";
                                 String fin = "";
                                 for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
                                     if (enrolStudent.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getStudent()) &&
                                         enrolCourse.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getCourse()) &&
                                         studentID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())){
-
+                                        exist = "exist";
+                                    }
+                                    if (exist.equalsIgnoreCase("exist")){
                                         System.out.println("Enrolment Already Existed");
                                         System.out.println("Please Choose Another Semester");
                                         break;
                                     }
-                                    else{
-                                        StudentEnrolment studentEnrolment = new StudentEnrolment(enrolStudent,enrolCourse,studentID);
-                                        studentEnrolment.addEnrolment(studentEnrolment);
-                                        fin = "fin";
-                                        System.out.println(StudentEnrolmentManager.studentEnrolment.size());
-                                        break;
-                                    }
+                                }
+                                if (!exist.equalsIgnoreCase("exist")){
+                                    StudentEnrolment studentEnrolment = new StudentEnrolment(enrolStudent,enrolCourse,studentID);
+                                    studentEnrolment.addEnrolment(studentEnrolment);
+                                    fin = "fin";
+                                    System.out.println(StudentEnrolmentManager.studentEnrolment.size());
                                 }
                                 if (!fin.equalsIgnoreCase("fin")){
                                     continue;
