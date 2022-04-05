@@ -3,19 +3,19 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
 
         Student student = new Student();
         Course course = new Course();
         Scanner scanner1 = new Scanner(System.in);
         StudentEnrolment studentEnrolment = new StudentEnrolment();
         ArrayList<String> semester = new ArrayList<>(Arrays.asList("2020B","2020C","2021A"));
-        boolean loop = true;
+        boolean loop;
 
         try {
             File sourceData = new File("default.csv");
             Scanner fileReader = new Scanner(sourceData);
-            int count = 0;
+            System.out.println("Default info: ");
             while (fileReader.hasNextLine()) {
                 String info = fileReader.nextLine();
                 System.out.println(info);
@@ -90,9 +90,6 @@ public class Main {
 
             switch (option){
                 case "1":
-                    for (int i = 0; i < student.studentArray.size(); i++) {
-                        System.out.println(student.studentArray.get(i).getID());
-                    }
                     loop = true;
                     while(loop){
                         System.out.println("Creating new enrolment: \n" +
@@ -105,12 +102,9 @@ public class Main {
                                 valid = "valid";
                                 break;
                             }
-                            if (!studentID.equalsIgnoreCase(student.studentArray.get(student.studentArray.size() - 1).getID())) {
-                                System.out.println("Not Valid ID");
-                                break;
-                            }
                         }
                         if (!valid.equalsIgnoreCase("valid")){
+                            System.out.println("Not Valid ID");
                             continue;
                         }
                         String enrolStudent = studentID;
@@ -124,12 +118,9 @@ public class Main {
                                     valid = "valid";
                                     break;
                                 }
-                                if (!studentID.equalsIgnoreCase(course.courseArray.get(course.courseArray.size() - 1).getCourseID())) {
-                                    System.out.println("Not Valid Course ID");
-                                    break;
-                                }
                             }
                             if (!valid.equalsIgnoreCase("valid")){
+                                System.out.println("Not Valid Course ID");
                                 continue;
                             }
                             String enrolCourse = studentID;
@@ -137,18 +128,15 @@ public class Main {
                                 System.out.println("Please enter semester: (2020B - 2021A)");
                                 studentID = scanner1.next();
                                 valid = "";
-                                for (int i = 0; i < semester.size(); i++) {
-                                    if(!studentID.equalsIgnoreCase(semester.get(i))){
+                                for (String s : semester) {
+                                    if (!studentID.equalsIgnoreCase(s)) {
                                         System.out.println("Valid Semester");
                                         valid = "valid";
                                         break;
                                     }
-                                    if (!studentID.equalsIgnoreCase(semester.get(semester.size()-1))) {
-                                        System.out.println("Not Valid Course ID");
-                                        break;
-                                    }
                                 }
                                 if (!valid.equalsIgnoreCase("valid")){
+                                    System.out.println("Not Valid Semester");
                                     continue;
                                 }
                                 String exist = "";
@@ -200,29 +188,23 @@ public class Main {
                                 valid = "valid";
                                 break;
                             }
-                            if (!studentID.equalsIgnoreCase(student.studentArray.get(student.studentArray.size() - 1).getID())) {
-                                System.out.println("Not Valid ID");
-                                break;
-                            }
                         }
                         if (!valid.equalsIgnoreCase("valid")){
+                            System.out.println("Not Valid ID");
                             continue;
                         }
                         System.out.println("Please enter semester: ");
                         String Semester = scanner1.next();
                         valid = "";
-                        for (int i = 0; i < semester.size(); i++) {
-                            if (Semester.equalsIgnoreCase(semester.get(i))) {
+                        for (String s : semester) {
+                            if (Semester.equalsIgnoreCase(s)) {
                                 System.out.println("Valid Semester");
                                 valid = "valid";
                                 break;
                             }
-                            if (!Semester.equalsIgnoreCase(semester.get(semester.size() - 1))) {
-                                System.out.println("Not Valid Semester");
-                                break;
-                            }
                         }
                         if (!valid.equalsIgnoreCase("valid")){
+                            System.out.println("Not Valid Semester");
                             continue;
                         }
                         System.out.println("Course of " + studentID);
@@ -249,29 +231,23 @@ public class Main {
                                 valid = "valid";
                                 break;
                             }
-                            if (!courseID.equalsIgnoreCase(course.courseArray.get(course.courseArray.size() - 1).getCourseID())) {
-                                System.out.println("Not Valid Course ID");
-                                break;
-                            }
                         }
                         if (!valid.equalsIgnoreCase("valid")){
+                            System.out.println("Not Valid Course ID");
                             continue;
                         }
                         System.out.println("Please enter semester: ");
                         String Semester = scanner1.next();
                         valid = "";
-                        for (int i = 0; i < semester.size(); i++) {
-                            if (Semester.equalsIgnoreCase(semester.get(i))) {
+                        for (String s : semester) {
+                            if (Semester.equalsIgnoreCase(s)) {
                                 System.out.println("Valid Semester");
                                 valid = "valid";
                                 break;
                             }
-                            if (!Semester.equalsIgnoreCase(semester.get(semester.size() - 1))) {
-                                System.out.println("Not Valid Semester");
-                                break;
-                            }
                         }
                         if (!valid.equalsIgnoreCase("valid")){
+                            System.out.println("Not Valid Semester");
                             continue;
                         }
                         System.out.println("Students in course: " + courseID);
@@ -286,7 +262,31 @@ public class Main {
                     continue;
 
                 case "6":
-                    
+                    loop = true;
+                    while(loop){
+                        System.out.println("Print All Course In One Semester: \n" +
+                                           "Please enter semester: ");
+                        String Semester = scanner1.next();
+                        String valid = "";
+                        for (String s : semester) {
+                            if (Semester.equalsIgnoreCase(s)) {
+                                System.out.println("Valid Semester");
+                                valid = "valid";
+                                break;
+                            }
+                        }
+                        if (!valid.equalsIgnoreCase("valid")){
+                            System.out.println("Not Valid Semester");
+                            continue;
+                        }
+                        System.out.println("Course in Semester: " + Semester);
+                        for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                            if (Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())){
+                                System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getCourse());
+                            }
+                        }
+                        loop = false;
+                    }
                     continue;
 
                 case "7":

@@ -244,10 +244,5 @@ public class StudentEnrolment implements StudentEnrolmentManager{
             System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).toString());
         }
     }
-
-//    @Override
-//    public ArrayList<StudentEnrolment> getAllEnrolments() {
-//        return this.enrolmentList;
-//    }
 }
 
