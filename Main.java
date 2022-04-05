@@ -286,15 +286,15 @@ public class Main {
                     continue;
 
                 case "6":
-
+                    
                     continue;
 
                 case "7":
-
+                    studentEnrolment.getAll();
                     continue;
 
                 case "8":
-
+                    studentEnrolment.getOne();
                     continue;
 
                 case "9":
