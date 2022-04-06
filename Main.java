@@ -1,10 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
+        File file = new File("C:\\Users\\Admin\\Documents\\GitHub\\Assignment_1_Furthur_Prog\\print.csv");
         Student student = new Student();
         Course course = new Course();
         Scanner scanner1 = new Scanner(System.in);
@@ -16,24 +19,24 @@ public class Main {
             File sourceData = new File("default.csv");
             Scanner fileReader = new Scanner(sourceData);
             System.out.println("Default info: ");
-            while (fileReader.hasNextLine()) {
+            while (fileReader.hasNextLine()) {          // Read file csv for enrolment
                 String info = fileReader.nextLine();
                 System.out.println(info);
                 String duplicate = "no";
                 String duplicate1 = "no";
 
-                if (student.studentArray.size() == 0){
+                if (student.studentArray.size() == 0){          // Add first student
                     Student student1 = new Student(info.split(",")[0],info.split(",")[1] ,info.split(",")[2]);
                     student.studentArray.add(student1);
                 }
                 else {
-                    for (int i = 0; i < student.studentArray.size(); i++) {
+                    for (int i = 0; i < student.studentArray.size(); i++) {         // Check if there are duplicate student ID before adding
                         if (student.studentArray.get(i).getID().equalsIgnoreCase(info.split(",")[0])) {
                             duplicate = "yes";
                             break;
                         }
                     }
-                    if (duplicate.equalsIgnoreCase("no")) {
+                    if (duplicate.equalsIgnoreCase("no")) {         // If student ID are not duplicate then we add
                         Student student2 = new Student(info.split(",")[0], info.split(",")[1], info.split(",")[2]);
                         student.studentArray.add(student2);
                     }
@@ -44,20 +47,20 @@ public class Main {
                     course.courseArray.add(course1);
                 }
                 else {
-                    for (int i = 0; i < course.courseArray.size(); i++) {
+                    for (int i = 0; i < course.courseArray.size(); i++) {   // Check if there are duplicate course ID before adding
                         if (course.courseArray.get(i).getCourseID().equalsIgnoreCase(info.split(",")[3])) {
                             duplicate1 = "yes";
                             break;
                         }
                     }
-                    if (duplicate1.equalsIgnoreCase("no")) {
+                    if (duplicate1.equalsIgnoreCase("no")) {    // If course ID are not duplicate then we add
                         Course course2 = new Course(info.split(",")[3], info.split(",")[4], info.split(",")[5]);
                         course.courseArray.add(course2);
                     }
                 }
 
                 StudentEnrolment  enrolment = new StudentEnrolment(info.split(",")[0], info.split(",")[3], info.split(",")[6]);
-                StudentEnrolmentManager.studentEnrolment.add(enrolment);
+                StudentEnrolmentManager.studentEnrolment.add(enrolment);            // Add enrolment
             }
             fileReader.close();
             System.out.println("Data Received");
@@ -107,7 +110,7 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")) {
-                            System.out.println("Not Valid ID");
+                            System.out.println("Not Valid ID\n");
                             continue;
                         }
                         String enrolStudent = studentID;
@@ -123,7 +126,7 @@ public class Main {
                                 }
                             }
                             if (!valid.equalsIgnoreCase("valid")) {
-                                System.out.println("Not Valid Course ID");
+                                System.out.println("Not Valid Course ID\n");
                                 continue;
                             }
                             String enrolCourse = studentID;
@@ -139,7 +142,7 @@ public class Main {
                                     }
                                 }
                                 if (!valid.equalsIgnoreCase("valid")) {
-                                    System.out.println("Not Valid Semester");
+                                    System.out.println("Not Valid Semester\n");
                                     continue;
                                 }
                                 String exist = "";
@@ -152,7 +155,7 @@ public class Main {
                                     }
                                     if (exist.equalsIgnoreCase("exist")) {
                                         System.out.println("Enrolment Already Existed");
-                                        System.out.println("Please Choose Another Semester");
+                                        System.out.println("Please Choose Another Semester\n");
                                         break;
                                     }
                                 }
@@ -185,7 +188,7 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")){
-                            System.out.println("Not Valid ID");
+                            System.out.println("Not Valid ID\n");
                             continue;
                         }
                         String enrolStudent = studentId;
@@ -202,7 +205,7 @@ public class Main {
                                 }
                             }
                             if (!valid.equalsIgnoreCase("valid")){
-                                System.out.println("Not Valid Semester");
+                                System.out.println("Not Valid Semester\n");
                                 continue;
                             }
                             String exist = "";
@@ -216,14 +219,14 @@ public class Main {
                                 }
                             }
                             if (!exist.equalsIgnoreCase("exist")){
-                                System.out.println("There are no enrolment for Student " + enrolStudent + "in" + enrolSemester);
+                                System.out.println("There are no enrolment for Student " + enrolStudent + "in" + enrolSemester +"\n");
                                 break;
                             }
                             System.out.println("""
                             Would you like to add or delete enrolment
                             1) Add enrolment
                             2) Delete enrolment
-                            """);
+                            \n""");
                             String option1 = scanner.next();
                             switch (option1){
                                 case "1":
@@ -244,14 +247,14 @@ public class Main {
                                         }
                                         if (exist.equalsIgnoreCase("exist")) {
                                             System.out.println("Enrolment Already Existed");
-                                            System.out.println("Please Choose Another Course");
+                                            System.out.println("Please Choose Another Course\n");
                                             continue;
                                         }
                                         StudentEnrolment studentEnrolment1 = new StudentEnrolment(enrolStudent, courseID, enrolSemester);
                                         studentEnrolment.updateEnrolmentadd(studentEnrolment1);
                                         System.out.println(StudentEnrolmentManager.studentEnrolment.size());
                                         loop = false;
-                                        System.out.println("Successfully update enrolment for " + enrolStudent + " for semester " + enrolSemester);
+                                        System.out.println("Successfully update enrolment for " + enrolStudent + " for semester " + enrolSemester +"\n");
                                     }
 
 
@@ -282,7 +285,7 @@ public class Main {
                                             loop = false;
                                         }
                                         else {
-                                            System.out.println("Cannot find enrolment!");
+                                            System.out.println("Cannot find enrolment!\n");
                                         }
                                     }
                                 }
@@ -308,7 +311,7 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")){
-                            System.out.println("Not Valid ID");
+                            System.out.println("Not Valid ID\n");
                             continue;
                         }
                         String enrolStudent = studentID;
@@ -324,7 +327,7 @@ public class Main {
                                 }
                             }
                             if (!valid.equalsIgnoreCase("valid")){
-                                System.out.println("Not Valid Course ID");
+                                System.out.println("Not Valid Course ID\n");
                                 continue;
                             }
                             String enrolCourse = studentID;
@@ -341,7 +344,7 @@ public class Main {
                                     }
                                 }
                                 if (!valid.equalsIgnoreCase("valid")){
-                                    System.out.println("Not Valid Semester");
+                                    System.out.println("Not Valid Semester\n");
                                     continue;
                                 }
                                 String delete = "";
@@ -351,7 +354,7 @@ public class Main {
                                             studentID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
                                         studentEnrolment.deleteEnrolment(StudentEnrolmentManager.studentEnrolment.get(i));
                                         delete = "delete";
-                                        System.out.println("Successfully delete enrolment!");
+                                        System.out.println("Successfully delete enrolment!\n");
                                         break;
                                     }
                                 }
@@ -359,7 +362,7 @@ public class Main {
                                     loop = false;
                                 }
                                 else{
-                                    System.out.println("Cannot find enrolment");
+                                    System.out.println("Cannot find enrolment\n");
                                     break;
                                 }
                             }
@@ -386,7 +389,7 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")) {
-                            System.out.println("Not Valid ID");
+                            System.out.println("Not Valid ID\n");
                             continue;
                         }
                         System.out.println("Please enter semester: ");
@@ -400,11 +403,11 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")) {
-                            System.out.println("Not Valid Semester");
+                            System.out.println("Not Valid Semester\n");
                             continue;
                         }
                         int count = 0;
-                        System.out.println("Course of " + studentID + ":");
+
                         for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
                             if (studentID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getStudent()) &&
                                 Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
@@ -414,11 +417,44 @@ public class Main {
                         if (count == 0){
                             System.out.println("There are no course which " + studentID + " enrol in");
                         }
+
                         else{
-                            for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
-                                if (studentID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getStudent()) &&
-                                    Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
-                                    System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getCourse());
+                            System.out.println("""
+                                Do you want to write into csv file?
+                                1) Yes
+                                2) No
+                                \n""");
+                            String choice = scanner1.next();
+                            if (Objects.equals(choice, "1")){
+                                try {
+                                    // create FileWriter object with file as parameter
+                                    FileWriter outputfile = new FileWriter(file);
+
+                                    // add data to csv
+                                    System.out.println("Course of " + studentID + ":");
+                                    for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                                        if (studentID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getStudent()) &&
+                                                Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
+                                            System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getCourse());
+                                            outputfile.write(StudentEnrolmentManager.studentEnrolment.get(i).getCourse() +"\n");
+                                        }
+                                    }
+
+
+                                    // closing writer connection
+                                    outputfile.close();
+                                }
+                                catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            if (Objects.equals(choice, "2")){
+                                System.out.println("Course of " + studentID + ":");
+                                for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                                    if (studentID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getStudent()) &&
+                                            Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
+                                        System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getCourse());
+                                    }
                                 }
                             }
                         }
@@ -440,7 +476,7 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")) {
-                            System.out.println("Not Valid Course ID");
+                            System.out.println("Not Valid Course ID\n");
                             continue;
                         }
                         System.out.println("Please enter semester: ");
@@ -454,14 +490,44 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")) {
-                            System.out.println("Not Valid Semester");
+                            System.out.println("Not Valid Semester\n");
                             continue;
                         }
-                        System.out.println("Students in course: " + courseID);
-                        for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
-                            if (courseID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getCourse()) &&
-                                    Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
-                                System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getStudent());
+                        System.out.println("""
+                            Do you want to write into csv file?
+                            1) Yes
+                            2) No
+                            """);
+                        String choice = scanner1.next();
+                        if (Objects.equals(choice, "1")){
+                            try {
+                                // create FileWriter object with file as parameter
+                                FileWriter outputfile = new FileWriter(file);
+
+                                // add data to csv
+                                System.out.println("Students in course: " + courseID);
+                                for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                                    if (courseID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getCourse()) &&
+                                            Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
+                                        System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getStudent());
+                                        outputfile.write(StudentEnrolmentManager.studentEnrolment.get(i).getCourse() +"\n");
+                                    }
+                                }
+
+                                // closing writer connection
+                                outputfile.close();
+                            }
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        if (Objects.equals(choice, "2")){
+                            System.out.println("Students in course: " + courseID);
+                            for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                                if (courseID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getCourse()) &&
+                                        Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
+                                    System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getStudent());
+                                }
                             }
                         }
                         loop = false;
@@ -482,29 +548,58 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")) {
-                            System.out.println("Not Valid Semester");
+                            System.out.println("Not Valid Semester\n");
                             continue;
                         }
-                        System.out.println("Course in Semester: " + Semester);
-                        for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
-                            if (Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
-                                System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getCourse());
+                        System.out.println("""
+                            Do you want to write into csv file?
+                            1) Yes
+                            2) No
+                            """);
+                        String choice = scanner1.next();
+                        if (Objects.equals(choice, "1")){
+                            try {
+                                // create FileWriter object with file as parameter
+                                FileWriter outputfile = new FileWriter(file);
+
+                                // add data to csv
+                                System.out.println("Course in Semester: " + Semester);
+                                for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                                    if (Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
+                                        System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getCourse());
+                                        outputfile.write(StudentEnrolmentManager.studentEnrolment.get(i).getCourse() +"\n");
+                                    }
+                                }
+
+                                // closing writer connection
+                                outputfile.close();
+                            }
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        if (Objects.equals(choice, "2")){
+                            System.out.println("Course in Semester: " + Semester);
+                            for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                                if (Semester.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
+                                    System.out.println(StudentEnrolmentManager.studentEnrolment.get(i).getCourse());
+                                }
                             }
                         }
                         loop = false;
                     }
                 }
                 case "7" ->
-                    studentEnrolment.getAll();
+                    studentEnrolment.getAll(); // Get all enrolment
 
                 case "8" -> {
                     loop = true;
                     while (loop) {
                         System.out.println("Print one enrolment: \n" +
                                 "Please enter student ID: ");
-                        String studentID = scanner1.next();
+                        String studentID = scanner1.next(); // Get student ID
                         String valid = "";
-                        for (int i = 0; i < student.studentArray.size(); i++) {
+                        for (int i = 0; i < student.studentArray.size(); i++) {       // Check if student ID valid
                             if (studentID.equalsIgnoreCase(student.studentArray.get(i).getID())) {
                                 System.out.println("Valid ID");
                                 valid = "valid";
@@ -512,15 +607,15 @@ public class Main {
                             }
                         }
                         if (!valid.equalsIgnoreCase("valid")) {
-                            System.out.println("Not Valid ID");
-                            continue;
+                            System.out.println("Not Valid ID\n");
+                            continue;      // If not valid then restart loop
                         }
                         String enrolStudent = studentID;
                         while (loop) {
                             System.out.println("Please enter course ID: ");
-                            studentID = scanner1.next();
+                            studentID = scanner1.next();       // Get course ID
                             valid = "";
-                            for (int i = 0; i < course.courseArray.size(); i++) {
+                            for (int i = 0; i < course.courseArray.size(); i++) {               // Check if course ID valid
                                 if (studentID.equalsIgnoreCase(course.courseArray.get(i).getCourseID())) {
                                     System.out.println("Valid Course ID");
                                     valid = "valid";
@@ -528,27 +623,27 @@ public class Main {
                                 }
                             }
                             if (!valid.equalsIgnoreCase("valid")) {
-                                System.out.println("Not Valid Course ID");
-                                continue;
+                                System.out.println("Not Valid Course ID\n");
+                                continue;           // If not valid then restart loop
                             }
                             String enrolCourse = studentID;
                             while (loop) {
                                 System.out.println("Please enter semester: (2020B - 2021A)");
-                                studentID = scanner1.next();
+                                studentID = scanner1.next();        //Get semester
                                 valid = "";
                                 ArrayList<String> semester1 = new ArrayList<>(Arrays.asList("2020B", "2020C", "2021A"));
                                 for (String s : semester1) {
-                                    if (!studentID.equalsIgnoreCase(s)) {
+                                    if (!studentID.equalsIgnoreCase(s)) {       // Check semester valid or not
                                         System.out.println("Valid Semester");
                                         valid = "valid";
                                         break;
                                     }
                                 }
                                 if (!valid.equalsIgnoreCase("valid")) {
-                                    System.out.println("Not Valid Semester");
-                                    continue;
+                                    System.out.println("Not Valid Semester\n");
+                                    continue;      // If not valid restart loop
                                 }
-                                for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {
+                                for (int i = 0; i < StudentEnrolmentManager.studentEnrolment.size(); i++) {     // If everything valid then print out enrolment
                                     if (enrolStudent.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getStudent()) &&
                                         enrolCourse.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getCourse()) &&
                                         studentID.equalsIgnoreCase(StudentEnrolmentManager.studentEnrolment.get(i).getSemester())) {
@@ -571,12 +666,12 @@ public class Main {
                             """);
                     String option1 = scanner.next();
                     switch (option1){
-                        case "1" -> student.getAllStudents();
-                        case "2" -> course.getAllCourses();
-                        case "3" -> studentEnrolment.getAll();
+                        case "1" -> student.getAllStudents();   // Print all student
+                        case "2" -> course.getAllCourses();       // Print all course
+                        case "3" -> studentEnrolment.getAll();      // Print all enrolment
                     }
                 }
-                case "10" -> condition = "quit";
+                case "10" -> condition = "quit"; // Stop the app
             }
         }
     }

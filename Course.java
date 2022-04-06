@@ -40,7 +40,7 @@ public class Course {
     }
 
     @Override
-    public String toString() {
+    public String toString() {      // Convert course information to string in order to print
         return "id: " + courseID + " " +
                 "| name: " + name + " " +
                 "| noCredits: " + credit;

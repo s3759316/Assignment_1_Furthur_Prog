@@ -41,7 +41,7 @@ public class StudentEnrolment implements StudentEnrolmentManager{
     }
 
     @Override
-    public String toString() {
+    public String toString() {      // Convert enrolment information to string in order to print
         return "student: " + student +
                 " | course: " + course +
                 " | Semester: " + semester;
@@ -54,13 +54,13 @@ public class StudentEnrolment implements StudentEnrolmentManager{
     }
 
     @Override
-    public void updateEnrolmentdelete(StudentEnrolment updateAdd) {
-        studentEnrolment.remove(updateAdd);
+    public void updateEnrolmentdelete(StudentEnrolment updateDelete) {
+        studentEnrolment.remove(updateDelete);
     }
 
     @Override
-    public void updateEnrolmentadd(StudentEnrolment updateDelete) {
-        studentEnrolment.add(updateDelete);
+    public void updateEnrolmentadd(StudentEnrolment updateAdd) {
+        studentEnrolment.add(updateAdd);
     }
 
     @Override

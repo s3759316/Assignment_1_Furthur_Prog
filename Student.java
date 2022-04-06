@@ -43,7 +43,7 @@ public class Student {
     }
 
     @Override
-    public String toString(){
+    public String toString(){       // Convert student information to string in order to print
         return "id: " + ID + " " +
                 "| name: " + name + " " +
                 "| birthdate " + birthdate;
