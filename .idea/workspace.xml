@@ -5,6 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudentEnrolment.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentEnrolment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudentEnrolmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentEnrolmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolmentManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolmentManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +46,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
