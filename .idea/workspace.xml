@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="87e34480-faa8-4053-8e98-3569c7d87b89" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentEnrolment.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentEnrolment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/CreateStudent.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/StudentEnrolment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/print.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_1_Furthur_Prog/print.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
